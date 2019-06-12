@@ -15,14 +15,7 @@ namespace SeleniumProject
         private IWebDriver _driver;
         private DynamicLoadingPage _dynamicLoadingPage;
 
-        [ClassInitialize]
-        public static void CreateScreenshotsDirectory(TestContext testContext)
-        {
-            if (!Directory.Exists(@"../../../Screenshots"))
-            {
-                Directory.CreateDirectory(@"../../../Screenshots");
-            }
-        }
+    
 
         [TestInitialize]
         public void Init()
