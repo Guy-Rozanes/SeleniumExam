@@ -15,6 +15,15 @@ namespace SeleniumProject
         private IWebDriver _driver;
         private DynamicLoadingPage _dynamicLoadingPage;
 
+        [ClassInitialize]
+        public static void CreateScreenshotsDirectory(TestContext testContext)
+        {
+            if (!Directory.Exists(@"../../../Screenshots"))
+            {
+                Directory.CreateDirectory(@"../../../Screenshots");
+            }
+        }
+
         [TestInitialize]
         public void Init()
         {
@@ -43,7 +52,7 @@ namespace SeleniumProject
                 _dynamicLoadingPage.HighLightMessageBox();
                 string date = DateTime.Now.ToString("yyyy-MM-dd hh-mm-ss");
                 ((ITakesScreenshot)_driver).GetScreenshot()
-                    .SaveAsFile($"..\\..\\..\\Screenshots\\Failed{date}.png", ScreenshotImageFormat.Png);
+                    .SaveAsFile($"..\\..\\..\\Failed{date}.png", ScreenshotImageFormat.Png);
                 Assert.Fail(e.Message + "Screenshot has been saved screenshots directory");
 
             }
