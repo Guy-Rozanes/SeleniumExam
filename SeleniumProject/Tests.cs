@@ -43,8 +43,8 @@ namespace SeleniumProject
                 _dynamicLoadingPage.HighLightMessageBox();
                 string date = DateTime.Now.ToString("yyyy-MM-dd hh-mm-ss");
                 ((ITakesScreenshot)_driver).GetScreenshot()
-                    .SaveAsFile($"..\\..\\..\\ScreenShots\\Failed{date}.png", ScreenshotImageFormat.Png);
-                Assert.Fail(e.Message + "Screenshot has been saved in bin/debug directory");
+                    .SaveAsFile($"..\\..\\..\\Screenshots\\Failed{date}.png", ScreenshotImageFormat.Png);
+                Assert.Fail(e.Message + "Screenshot has been saved screenshots directory");
 
             }
         }
