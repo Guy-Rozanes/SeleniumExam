@@ -15,8 +15,7 @@ namespace SeleniumProject
         private IWebDriver _driver;
         private DynamicLoadingPage _dynamicLoadingPage;
 
-    
-
+   
         [TestInitialize]
         public void Init()
         {
@@ -46,7 +45,7 @@ namespace SeleniumProject
                 string date = DateTime.Now.ToString("yyyy-MM-dd hh-mm-ss");
                 ((ITakesScreenshot)_driver).GetScreenshot()
                     .SaveAsFile($"..\\..\\..\\Failed{date}.png", ScreenshotImageFormat.Png);
-                Assert.Fail(e.Message + "Screenshot has been saved screenshots directory");
+                Assert.Fail(e.Message + "Screenshot has been saved");
 
             }
         }
